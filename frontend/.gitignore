@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+
+# VS Code
+.vscode/
+
+# Static image output folders
+app/static/converted/
+app/static/annotated/
+
+# Env files
+.env
+*.env
+
+
+node_modules/
