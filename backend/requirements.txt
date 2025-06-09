@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydicom
+numpy
+Pillow
+python-multipart
+pylibjpeg
+pylibjpeg-libjpeg
+pylibjpeg-openjpeg
+gdcm
