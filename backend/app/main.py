@@ -1,27 +1,20 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import upload
-import os
+from app.routes import report, upload, predict
+from fastapi.staticfiles import StaticFiles
 
-app = FastAPI(title="Dental X-ray Diagnosis Backend")
+app = FastAPI()
 
-# Allow CORS for frontend on localhost:3000
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change to specific domain in prod
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Create static directory if not exists
-os.makedirs("app/static/converted", exist_ok=True)
-os.makedirs("app/static/annotated", exist_ok=True)
-
-# Register routes
 app.include_router(upload.router)
+app.include_router(predict.router)
+app.include_router(report.router)
 
-# Entry test
-@app.get("/")
-def root():
-    return {"message": "API is working"}
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
