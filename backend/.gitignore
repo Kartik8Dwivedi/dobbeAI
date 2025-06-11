@@ -11,8 +11,8 @@ venv/
 .vscode/
 
 # Static image output folders
-app/static/converted/
-app/static/annotated/
+# app/static/converted/
+# app/static/annotated/
 
 # Env files
 .env
